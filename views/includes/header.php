@@ -12,11 +12,11 @@
 <body>
     <div class="site-background">
         <header>
-            <h1>
+            <span>
                 <a href="#">
                     <img src="./img/Logo-cut.png" alt="Toys R Us" id="logo">
                 </a>
-            </h1>
+            </span>
 
             <nav>
                 <ul class="first-menu">
@@ -36,7 +36,7 @@
         </header>
 
         <main> 
-            <h2><?php echo $page_title ?></h2>
+            <h1><?php echo $page_title ?></h1>
 
             <div class="items-container">
             
