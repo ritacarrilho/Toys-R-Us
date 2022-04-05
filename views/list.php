@@ -1,13 +1,13 @@
 <form action="" method="get">
-    <select name="games" id="game-sectle">
+    <select name="games">
         <option value="">Quelle marque?</option>
-        <option value="ravensburger">Ravensburger</option>
-        <option value="silverlit-toys">Silverlit Toys</option>
-        <option value="asmodee">Asmodée</option>
-        <option value="clementoni">Clementoni</option>
-        <option value="playmobil">Playmobil</option>
-        <option value="mattel">Mattel</option>
-        <option value="wow-wee">Wow Wee</option>
+        <option value="1">Ravensburger</option>
+        <option value="2">Silverlit Toys</option>
+        <option value="3">Asmodée</option>
+        <option value="4">Clementoni</option>
+        <option value="5">Playmobil</option>
+        <option value="6">Mattel</option>
+        <option value="7">Wow Wee</option>
     </select>
 
     <button type="submit">Ok</button>
@@ -15,20 +15,12 @@
 
 <div class="items-grid">
     
-        <?php if( count ( $games ) <= 0 ): ?>
-            <div class="error">Aucun jouet en ce moment</div>
-        <?php else: 
-            
-            foreach( $games as $game ): ?>
+        <?php
+            foreach( $toys as $toy ): ?>
             <div>
-                <img src="/img/<?php echo $game['image'] ?>" alt="Game Image">
-                <h5><a href=""> <?php echo $game['name'] ?></a> </h5>
-                <p><?php echo $game['price']; ?></p>
+                <img src="/img/<?php echo $toy['image'] ?>" alt="Game Image">
+                <h5><a href="/list?id=<?php echo $toy['id']?>"> <?php echo $toy['name'] ?></a> </h5>
+                <p><?php echo $toy['price']; ?></p>
             </div>    
             <?php endforeach ?>
-        <?php endif ?>
 </div>
-
-<?php 
-
-?>

@@ -4,27 +4,38 @@ function homeRender() {
     $page_title = 'Top 3 des Ventes';
     $home_url = "PATH_ROOT . 'views' . SLASH . 'home.php'";
 
-    // TODO: the choses a faire avant afficher home
     require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'header.php';
+    $top_list = getTopThree();
     require_once PATH_ROOT . 'views' . SLASH . 'home.php';
     require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'footer.php';
 }
 
-function gamesGetTopThree() {
+function getTopThree() {
     global $mysqli;
     
-    $result = [];
-    
-    $q = 'SELECT ';
-    
-    $q_result = mysqli_query( $mysqli, $q );
-    
-        // if( $q_result ) {
-        //     while( $game = mysqli_fetch_assoc( $q_result ) ) {
-        //         $result[] = $game;
-        //     }
-        // }
-    
-        return $result;
-  
+    $top_list = [];
+        
+    $q = 'SELECT SUM(sales.quantity) AS quantity, toys.id, toys.name, toys.price, toys.image, sales.toy_id 
+    FROM sales 
+    JOIN toys
+    WHERE toys.id=sales.toy_id
+    GROUP BY sales.toy_id 
+    ORDER BY quantity DESC 
+    LIMIT 3';
+        
+    // Query execution
+    $q_list = mysqli_query( $mysqli, $q );
+    // var_dump($q);
+            
+        if( $q_list ) {
+            while( $list = mysqli_fetch_assoc( $q_list ) ) {
+                // echo $list['name'];
+                // echo $list['price'];
+                // echo $list['image']; 
+
+                $top_list[] = $list;
+            }
+        }
+
+        return $top_list;
 }

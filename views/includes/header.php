@@ -13,7 +13,7 @@
     <div class="site-background">
         <header>
             <span>
-                <a href="#">
+                <a href="<?php echo '/'?>">
                     <img src="./img/Logo-cut.png" alt="Toys R Us" id="logo">
                 </a>
             </span>
@@ -21,14 +21,18 @@
             <nav>
                 <ul class="first-menu">
                     <li>
-                        <a href="">Tous les jouets</a>
+                        <a href="<?php echo 'list'?>">Tous les jouets</a>
                     </li>
                     <li>
-                        <a href="">Par marque</a>
+                        <a href="<?php echo 'details' ?>">Par marque</a>
                         <ul class="sub-menu">
-                            <li><a href="">Ravensburguer</a></li>
-                            <li><a href="">Asmodée</a></li>
-                            <li><a href="">Mattel</a></li>
+                            <li><a href="<?php echo 'list?id=1' ?>">Ravensburguer</a></li>
+                            <li><a href="<?php echo 'list?id=2' ?>">Silverlit Toys</a></li>
+                            <li><a href="<?php echo 'list?id=3' ?>">Mattel</a></li>
+                            <li><a href="<?php echo 'list?id=4' ?>">Clementoni</a></li>
+                            <li><a href="<?php echo 'list?id=5' ?>">Playmobil</a></li>
+                            <li><a href="<?php echo 'list?id=6' ?>">Mattel</a></li>
+                            <li><a href="<?php echo 'list?id=7' ?>">Wow Wee</a></li>
                         </ul>
                     </li>
                 </ul>
