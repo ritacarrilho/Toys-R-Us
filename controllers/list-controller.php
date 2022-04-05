@@ -6,6 +6,8 @@ function listRender() {
 
     require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'header.php';
     $toys = getAllGames();
+    $marks = getByBrand();
+    $brands = getBrandId();
 
     // if(!isset([$_GET])) {
     //     $games = getAllGames();
@@ -23,7 +25,7 @@ function getAllGames() {
     $games_list = [];
     
     $q = 'SELECT name, price, image, id 
-            FROM lamp.toys; ';
+            FROM toys; ';
     
     // Query execution
     $q_list = mysqli_query( $mysqli, $q );
@@ -70,6 +72,27 @@ function getByBrand() {
             }
         }
     }
-    var_dump($brand_list);
     return $brand_list;
+}
+
+function getBrandId() {
+    global $mysqli;
+    
+    $games_list = [];
+    
+    $q = 'SELECT * FROM brands ';
+    
+    // Query execution
+    $q_list = mysqli_query( $mysqli, $q );
+    // var_dump($q);
+        
+        if( $q_list ) {
+            while( $barnd = mysqli_fetch_assoc( $q_list ) ) {
+
+                $brands_list[] = $brand;
+                // var_dump($games_list);
+            }
+        }
+        // var_dump($games_list);
+        return $brands_list;
 }
