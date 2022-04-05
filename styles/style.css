@@ -1,0 +1,135 @@
+:root {
+    --blue: #0056af;
+    --light-blue: #b9d1f3;
+    --dark-blue: #0b1628;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.site-background {
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-position: top; 
+    background-size: cover;
+    height: 100vh;
+}
+
+h1 {
+    height: 90px;
+    margin-left: 25%;
+    padding-top: 25px;
+}
+
+nav {
+    /* display: flex; */
+    /* align-items: center; */
+    background-color: var(--blue);
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 45px;
+}
+
+nav ul {
+    font-size: 12px;
+    
+}
+
+nav ul li {
+    position: relative;
+    display: inline-block;
+    
+}
+
+nav ul li a {
+    display: block;
+    padding: 0 15px;
+    color: #fefefe;
+    font-size: 10px;
+    font-weight: 700;
+    height: 45px;
+    border-right: 1px dashed #fefefe;
+
+}
+
+nav ul a:hover {
+    background-color: var(--light-blue);
+    color: var(--blue);
+}
+
+nav ul ul {
+    position: absolute;
+    top: 45px;
+    display: none;
+    background-color: var(--light-blue);
+    overflow: hidden;
+}
+
+nav ul li:hover > ul {
+    display: block;
+    width: 130px;
+}
+
+nav ul ul li {
+    position: relative;
+}
+
+nav ul ul li a {
+    border-right: none;
+}
+
+/* nav ul ul li:hover {
+    background-color: ;
+} */
+
+
+
+
+    /* nav ul {
+        display: flex;
+        height: 100%;
+        position: relative;
+    }
+        nav ul:first-child li {
+            border-right: 1px dashed #fefefe;
+            height: 100%;
+            display: inline-block;
+            align-items: center;
+        }
+
+        nav ul:first-child li:last-child:hover {
+            color: var(--blue);
+            background-color: var(--light-blue);
+        }
+            nav ul li a {
+                color: aliceblue;
+                display: block;
+                font-weight: 600;
+                padding: 0 10px;
+            }
+
+        nav ul li ul{
+            display: none;
+            position: absolute;
+            background-color: var(--light-blue);
+            width: 130px;
+            /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+            /* padding: 12px 16px; */
+            /* z-index: 1;
+            color: var(--dark-blue);
+            height: 96px;
+            top: 45px;
+        } */
+
+        /* nav:hover .sub-menu {
+            display: block;
+        } */
+
+h2 {
+    size: 22px;
+    color: black;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 90px;
+}
