@@ -8,8 +8,8 @@ function listRender() {
     $games = getAllGames();
     $brands = getByBrand();
     // var_dump($brands);
-    $all_brands = getAllBrands();
 
+    $all_brands = getAllBrands();
     $toys = !isset($_GET['brand']) ? $games : $brands;
 
     require_once PATH_ROOT . 'views' . SLASH . 'list.php';

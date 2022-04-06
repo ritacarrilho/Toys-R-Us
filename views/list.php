@@ -1,9 +1,11 @@
 <form action="" method="get">
     <select name="brand">
     <option value="choose-a-brand">Quelle marque ?</option>
+    
         <?php foreach($all_brands as $brand): ?>
             <option value="<?php echo $brand['id']?>"><?php echo $brand['name'] ?></option>
             <?php endforeach ?>
+            
     </select>
 
     <button type="submit">Ok</button>
@@ -20,3 +22,7 @@
         <?php endforeach ?>
     <?php endif ?>
 </div>
+
+<?php if( $_GET['brand'] == 'choose-a-brand' ): header( 'Location: /list')?>
+
+<?php endif ?>

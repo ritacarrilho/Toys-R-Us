@@ -8,6 +8,19 @@ body {
     font-family: sans-serif;
 }
 
+/* PAGE TITLE */
+h1 {
+    size: 22px;
+    color: black;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h6 {
+    color: var(--blue);
+    float: left;
+}
+
 /* BACKGROUND IMAGE */
 .site-background {
     background-image: url(../img/background.jpg);
@@ -29,7 +42,7 @@ span {
 
     span img {
         padding-top: 25px;
-
+        padding-bottom: 20px;
     }
 
 /* NAV BAR */
@@ -67,7 +80,7 @@ nav ul li a {
     border-right: 1px dashed #fefefe;
 }
 
-nav ul a:hover {
+nav ul a:hover, nav ul a:active {
     background-color: var(--light-blue);
     color: var(--blue);
 }
@@ -78,6 +91,7 @@ nav ul ul {
     display: none;
     background-color: var(--light-blue);
     overflow: hidden;
+    width: 100px;
 }
 
 nav ul li:hover > ul {
@@ -90,15 +104,14 @@ nav ul ul li {
 }
 
 nav ul ul li a {
+    color: var(--dark-blue);
     border-right: none;
+    padding: 14px 0 0 21px;
+    text-align: left;
 }
 
-/* PAGE TITLE */
-h1 {
-    size: 22px;
-    color: black;
-    text-align: center;
-    padding: 20px 0;
+.nav ul ul li a::after {
+    content: none;
 }
 
 /* FORM */
@@ -108,10 +121,10 @@ form {
 
 form button {
     border: 1px solid #000000;
-    background-color: #c2c2c2;
+    background-color: #dad8d8;
     border-radius: 1px;
     cursor: pointer;
-    padding: 1px;
+    padding: 1.5px;
 }
 
 /* ITEMS DISPLAY GRID*/
@@ -141,3 +154,36 @@ form button {
         font-size: 20px;
     }
 
+.items-flex {
+    display: flex;
+    padding-left: 27px;
+    padding-right: 27px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+.content > p, .content > h6 {
+    padding-bottom: 15px;
+}
+
+h6 span {
+    color: var(--dark-blue);
+}
+
+.img > p {
+    padding-top: 5px;
+}
+
+.img h6 {
+    margin-top: 10px;
+}
+
+.store-form{
+    margin-top: 15px;
+    text-align: left;
+}
