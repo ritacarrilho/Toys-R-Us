@@ -20,7 +20,7 @@ function getTopThree() {
     JOIN toys
     WHERE toys.id=sales.toy_id
     GROUP BY sales.toy_id 
-    ORDER BY quantity DESC 
+    ORDER BY toys.price DESC 
     LIMIT 3';
         
     // Query execution

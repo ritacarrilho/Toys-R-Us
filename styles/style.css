@@ -17,10 +17,14 @@ body {
     height: 100vh;
 }
 
+.container {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
 /* LOGO */
 span {
     height: 90px;
-    margin-left: 25%;
 }
 
     span img {
@@ -30,27 +34,32 @@ span {
 
 /* NAV BAR */
 nav {
-    /* display: flex; */
-    /* align-items: center; */
     background-color: var(--blue);
-    margin-left: 25%;
-    margin-right: 25%;
     height: 45px;
 }
 
-nav ul {
+nav > ul {
     font-size: 15px;
+    display: flex;
 }
 
-nav ul li {
+nav > ul li {
     position: relative;
-    display: inline-block;
-    
+    text-align: center;
+}
+
+.first-menu li:last-child a::after {
+    content: '\f0d7';
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    margin:0px 0px 0px 10px;
+    text-decoration:none;
 }
 
 nav ul li a {
     display: block;
-    padding: 0 15px;
+    padding: 16px 15px 0 15px;
     color: #fefefe;
     font-size: 10px;
     font-weight: 700;
@@ -108,11 +117,9 @@ form button {
 /* ITEMS DISPLAY GRID*/
 .items-grid {
     margin-top: 50px;
-    margin-left: 25%;
-    margin-right: 25%;
     display: grid;
     gap: 30px 10px;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
     padding-bottom: 60px;
 }

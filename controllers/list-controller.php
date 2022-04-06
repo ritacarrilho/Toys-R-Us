@@ -5,20 +5,18 @@ function listRender() {
     $list_url = "PATH_ROOT . 'views' . SLASH . 'list.php'";
 
     require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'header.php';
-    $toys = getAllGames();
-    $marks = getByBrand();
-    $brands = getBrandId();
+    $games = getAllGames();
+    $brands = getByBrand();
+    // var_dump($brands);
+    $all_brands = getAllBrands();
 
-    // if(!isset([$_GET])) {
-    //     $games = getAllGames();
-    // } else {
-    //     $games = getByBrand();
-    // };
+    $toys = !isset($_GET['brand']) ? $games : $brands;
 
     require_once PATH_ROOT . 'views' . SLASH . 'list.php';
     require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'footer.php';
 }
 
+// get all toys
 function getAllGames() {
     global $mysqli;
     
@@ -42,23 +40,24 @@ function getAllGames() {
         return $games_list;
 }
 
+// get toys by brand
 function getByBrand() {
     global $mysqli;
     
     $brand_list = [];
     
-    if( !empty( $_GET['id']) ) {
+    if( !empty( $_GET['brand']) ) {
 
         $q_prep = 'SELECT id, name, price, image
             FROM toys
             WHERE brand_id=?';
 
-        var_dump($q_prep);
-
         if( $stmt = mysqli_prepare( $mysqli, $q_prep ) ) {
-            $id = $_GET['id'];
+            if (isset($_GET['brand'] ) ) {
+                $brand = $_GET['brand'];
+            }
     
-            if( mysqli_stmt_bind_param( $stmt, 'i', $id ) ) {
+            if( mysqli_stmt_bind_param( $stmt, 's', $brand) ) {
                 mysqli_stmt_execute( $stmt );
     
                 $result = mysqli_stmt_get_result( $stmt );
@@ -66,8 +65,9 @@ function getByBrand() {
                 mysqli_stmt_close( $stmt );
     
                 if( $result ) {
-                    $brand_list = mysqli_fetch_assoc( $result );
-                    var_dump($brand_list);
+                    while( $toys = mysqli_fetch_assoc( $result ) ) {
+                        $brand_list[] = $toys;
+                }
                 };
             }
         }
@@ -75,24 +75,23 @@ function getByBrand() {
     return $brand_list;
 }
 
-function getBrandId() {
+// Display brands name into form
+function getAllBrands() {
     global $mysqli;
     
-    $games_list = [];
+    $brands_list = [];
     
-    $q = 'SELECT * FROM brands ';
+    $q = 'SELECT * FROM brands';
     
     // Query execution
     $q_list = mysqli_query( $mysqli, $q );
-    // var_dump($q);
         
         if( $q_list ) {
-            while( $barnd = mysqli_fetch_assoc( $q_list ) ) {
+            while( $brand = mysqli_fetch_assoc( $q_list ) ) {
 
                 $brands_list[] = $brand;
-                // var_dump($games_list);
+                // var_dump($brands_list);
             }
         }
-        // var_dump($games_list);
         return $brands_list;
 }
