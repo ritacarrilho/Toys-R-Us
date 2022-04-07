@@ -61,7 +61,7 @@ nav > ul li {
     text-align: center;
 }
 
-.first-menu li:last-child a::after {
+nav .first-menu li:nth-child(2) a::after {
     content: '\f0d7';
     font-family: FontAwesome;
     font-weight: normal;
@@ -110,8 +110,8 @@ nav ul ul li a {
     text-align: left;
 }
 
-.nav ul ul li a::after {
-    content: none;
+.nav > ul > ul li a::after {
+    content: '';
 }
 
 /* FORM */
@@ -173,6 +173,10 @@ form button {
 
 h6 span {
     color: var(--dark-blue);
+}
+
+.content span p  {
+    padding-bottom: 15px;
 }
 
 .img > p {

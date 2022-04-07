@@ -25,7 +25,7 @@
                     <li>
                         <a href="list">Tous les jouets</a>
                     </li>
-                    <li>
+                    <li id="li">
                         <a href="">Par marque</a>
                             <ul class="sub-menu">
                             <?php

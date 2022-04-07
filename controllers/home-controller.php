@@ -16,12 +16,12 @@ function getTopThree() {
     $top_list = [];
         
     $q = 'SELECT SUM(sales.quantity) AS quantity, toys.id, toys.name, toys.price, toys.image, sales.toy_id 
-    FROM sales 
-    JOIN toys
-    WHERE toys.id=sales.toy_id
-    GROUP BY sales.toy_id 
-    ORDER BY toys.price DESC 
-    LIMIT 3';
+            FROM sales 
+            JOIN toys
+            WHERE toys.id=sales.toy_id
+            GROUP BY sales.toy_id 
+            ORDER BY toys.price DESC 
+            LIMIT 3';
         
     // Query execution
     $q_list = mysqli_query( $mysqli, $q );

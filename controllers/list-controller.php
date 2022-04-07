@@ -22,8 +22,7 @@ function getAllGames() {
     
     $games_list = [];
     
-    $q = 'SELECT name, price, image, id 
-            FROM toys; ';
+    $q = 'SELECT name, price, image, id FROM toys';
     
     // Query execution
     $q_list = mysqli_query( $mysqli, $q );
