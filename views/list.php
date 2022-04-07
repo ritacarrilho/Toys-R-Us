@@ -3,9 +3,13 @@
     <option value="choose-a-brand">Quelle marque ?</option>
     
         <?php foreach($all_brands as $brand): ?>
-            <option value="<?php echo $brand['id']?>"><?php echo $brand['name'] ?></option>
-            <?php endforeach ?>
+            <?php if ($_GET['brand'] === $brand['id']) : $selected = 'selected'; else :  $selected = ''; endif ?>
             
+            <option value="<?php echo $brand['id']?>" <?php echo $selected ?>>
+                <?php echo $brand['name'] ?>
+            </option>
+
+        <?php endforeach ?>
     </select>
 
     <button type="submit">Ok</button>

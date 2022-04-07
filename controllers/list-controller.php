@@ -48,8 +48,8 @@ function getByBrand() {
     if( !empty( $_GET['brand']) ) {
 
         $q_prep = 'SELECT id, name, price, image
-            FROM toys
-            WHERE brand_id=?';
+                    FROM toys
+                    WHERE brand_id=?';
 
         if( $stmt = mysqli_prepare( $mysqli, $q_prep ) ) {
             if (isset($_GET['brand'] ) ) {

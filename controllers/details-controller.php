@@ -3,72 +3,34 @@ function detailsRender() {
     $html_title = 'Details'; 
     $toys = getToys();
 
+    // Page title according to toy
     if( isset($_GET['id']) ) :
         foreach( $toys as $toy ): 
         $page_title = $toy['name'];
         endforeach;
     endif;
+
+    $stores = getAllStores();
+    $stock_all_stores = getStockTotal();
+    $stocks_each_store = getStockByStore(); // stock by store
+    
+    // var_dump($stocks_each_store);
+    // var_dump($stock_all_stores);
+    
+    $stocks = !isset($_GET['store']) ? $stock_all_stores : $stocks_each_store;
         
     require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'header.php';
-
-    // $stock = getToysAndStores();
-    // var_dump($toys);
-    
     require_once PATH_ROOT . 'views' . SLASH . 'details.php';
     require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'footer.php';
 }
 
-
-function getToysAndBrands() {
-
-}
-/* function getToysAndStores() {
-    global $mysqli;
-    
-    $toys_list = [];
-    
-    if( !empty( $_GET['store-form']) ) {
-
-        $q_prep = 'SELECT toys.id AS toy_id, toys.name AS toy_name, 
-                    toys.price, toys.image, brands.name AS brand_name, 
-                    stock.quantity, stores.name AS store_name 
-                        FROM toys
-                        LEFT JOIN brands ON brands.id=toys.brand_id
-                        LEFT JOIN stock ON toys.id=stock.toy_id
-                        LEFT JOIN stores ON stock.store_id = stores.id 
-                        WHERE store_id=?';
-
-        if( $stmt = mysqli_prepare( $mysqli, $q_prep ) ) {
-            if (isset($_GET['store-form'] ) ) {
-                $store = $_GET['store-form'];
-            }
-
-            if( mysqli_stmt_bind_param( $stmt, 's', $store) ) {
-                mysqli_stmt_execute( $stmt );
-
-                $result = mysqli_stmt_get_result( $stmt );
-
-                mysqli_stmt_close( $stmt );
-
-                if( $result ) {
-                    while( $toys = mysqli_fetch_assoc( $result ) ) {
-                        $toys_list[] = $toys;
-                    }
-                }
-            }
-        }
-    }
-    var_dump($toys_list);
-
-    return $toys_list;
-}*/
-
+// Get toy name, details, image and brand
 function getToys() {
     global $mysqli;
     
     $toys_list = [];
     
-    $q_prep = 'SELECT toys.name, toys.description, toys.price, toys.image, brands.name AS brand_name 
+    $q_prep = 'SELECT toys.name, toys.id, toys.description, toys.price, toys.image, brands.name AS brand_name 
             FROM toys 
             INNER JOIN brands ON toys.brand_id = brands.id
             WHERE toys.id=? ';
@@ -97,8 +59,91 @@ function getToys() {
     return $toys_list;
 }
 
+// Get all stores name
+function getAllStores() {
+    global $mysqli;
+    
+    $stores_list = [];
+    
+    $q = 'SELECT id AS store_id, name AS store_name FROM stores';
+    
+    $q_list = mysqli_query( $mysqli, $q );
+        
+        if( $q_list ) {
+            while( $store = mysqli_fetch_assoc( $q_list ) ) {
 
+                $stores_list[] = $store;
+                // var_dump($stores_list);
+            }
+        }
+        return $stores_list;
+}
 
-function getStores() {
+// Get stock total of all stores, by toy
+function getStockTotal() {
+    global $mysqli;
+    
+    $stock_total = [];
+    
+    $q_prep = 'SELECT sum(quantity) AS stock_total, toy_id 
+                    FROM stock    
+                    WHERE toy_id=? 
+                    GROUP BY toy_id';
+    
+    if( $stmt = mysqli_prepare( $mysqli, $q_prep ) ) {
+        if (isset($_GET['id'])) {
+            $toy = $_GET['id'];
+        }
 
+        if( mysqli_stmt_bind_param( $stmt, 'i', $toy) ) {
+            mysqli_stmt_execute( $stmt );
+
+            $q_result = mysqli_stmt_get_result( $stmt );
+
+            mysqli_stmt_close( $stmt );
+
+            if( $q_result ) {
+                while( $quantity = mysqli_fetch_assoc( $q_result ) ) {
+                    $stock_total[] = $quantity;
+                }
+            }
+        }
+    }
+    return $stock_total;
+}
+
+function getStockByStore() {
+    global $mysqli;
+    
+    $stores_stock = [];
+    
+    if( !empty( $_GET['store']) && isset($_GET['store'] )) {
+
+        $q_prep = 'SELECT stock.quantity, stores.id AS store_id, stock.toy_id 
+                        FROM stock
+                        JOIN stores ON stock.store_id = stores.id 
+                        WHERE store_id=? AND toy_id=?';
+
+        if( $stmt = mysqli_prepare( $mysqli, $q_prep ) ) {
+                $store = $_GET['store'];
+                $toy = $_GET['id'];
+                
+        
+            if( mysqli_stmt_bind_param( $stmt, 'ii', $store, $toy ) ) {
+                mysqli_stmt_execute( $stmt );
+
+                $result = mysqli_stmt_get_result( $stmt );
+
+                mysqli_stmt_close( $stmt );
+
+                if( $result ) {
+                    while( $stores = mysqli_fetch_assoc( $result ) ) {
+                        $stores_stock[] = $stores;
+                    }
+                }
+            }
+        }
+    }
+
+    return $stores_stock;
 }
