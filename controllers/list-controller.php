@@ -9,7 +9,7 @@ function listRender() {
     $brands = getByBrand();
     // var_dump($brands);
 
-    $all_brands = getAllBrands();
+    // $all_brands = getAllBrands();
     $toys = !isset($_GET['brand']) ? $games : $brands;
 
     require_once PATH_ROOT . 'views' . SLASH . 'list.php';
@@ -72,25 +72,4 @@ function getByBrand() {
         }
     }
     return $brand_list;
-}
-
-// Display brands name into form
-function getAllBrands() {
-    global $mysqli;
-    
-    $brands_list = [];
-    
-    $q = 'SELECT * FROM brands';
-    
-    // Query execution
-    $q_list = mysqli_query( $mysqli, $q );
-        
-        if( $q_list ) {
-            while( $brand = mysqli_fetch_assoc( $q_list ) ) {
-
-                $brands_list[] = $brand;
-                // var_dump($brands_list);
-            }
-        }
-        return $brands_list;
 }

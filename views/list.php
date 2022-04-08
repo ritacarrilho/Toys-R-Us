@@ -2,11 +2,11 @@
     <select name="brand">
     <option value="choose-a-brand">Quelle marque ?</option>
     
-        <?php foreach($all_brands as $brand): ?>
-            <?php if ($_GET['brand'] === $brand['id']) : $selected = 'selected'; else :  $selected = ''; endif ?>
+        <?php foreach($brand_data as $brand): ?>
+            <?php if ($_GET['brand'] === $brand['brand_id']) : $selected = 'selected'; else :  $selected = ''; endif ?>
             
-            <option value="<?php echo $brand['id']?>" <?php echo $selected ?>>
-                <?php echo $brand['name'] ?>
+            <option value="<?php echo $brand['brand_id']?>" <?php echo $selected ?>>
+                <?php echo $brand['brand_name'] . " (" . $brand['toys_total'] . ")" ?>
             </option>
 
         <?php endforeach ?>
@@ -27,6 +27,8 @@
     <?php endif ?>
 </div>
 
-<?php if( isset($_GET['brand']) && $_GET['brand'] === 'choose-a-brand' ): header( 'Location: /list')?>
-
-<?php endif ?>
+<?php if( isset($_GET['brand']) && $_GET['brand'] === 'choose-a-brand' ): 
+    header( 'Location: /list'); 
+    //elseif ( !($_GET['id']) && !($_GET['brand'])):
+      //  header( 'Location: /error' );
+endif?>

@@ -1,3 +1,7 @@
+<?php require PATH_ROOT . 'controllers' . SLASH . 'toys-list-controller.php';
+
+$brand_data = getAllBrands(); ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -26,17 +30,15 @@
                         <a href="list">Tous les jouets</a>
                     </li>
                     <li id="li">
-                        <a href="">Par marque</a>
+                        <a href="list">Par marque</a>
                             <ul class="sub-menu">
                             <?php
-                                global $mysqli;
-                                $brandQuery = ( mysqli_query( $mysqli, 'SELECT * FROM brands;') );
-                                while( $brandData = mysqli_fetch_assoc( $brandQuery ) ) {
-                            ?>           
-                            <li><a href="/list?brand=<?= $brandData['id']?>"><?php echo $brandData['name'] ?></a></li>
-                            <?php
-				            }
-				            ?>    
+                                foreach($brand_data as $data) {?> 
+                                <li>
+                                    <a href="/list?brand=<?= $data['brand_id']?>">
+                                <?php echo $data['brand_name'] . " (" . $data['toys_total']  . ")";?>
+                                </a></li>
+                            <?php } ?>    
                             </ul>
                     </li>
                 </ul>

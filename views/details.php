@@ -11,7 +11,9 @@
         <form class="store-form" action="" method="get">
             <input type="hidden" name="id" value= <?php echo $_GET['id'] ?>>
             <select name="store">
-                <option value="choose-a-store">Quel magasin ?</option>
+            <?php if( !isset($_GET['store']) || $_GET['store'] === 'choose-a-store' ): ?>
+                <option value="choose-a-store">Quel magasin ?</option> 
+            <?php endif ?>
                 <?php foreach( $stores as $store ): ?>
                     <?php if ($_GET['store'] === $store['store_id']) : $selected = 'selected'; else :  $selected = ''; endif ?>
 
@@ -47,4 +49,4 @@
     
 </div>
 
-<?php // if( $_GET['store'] === 'choose-a-store' ): header( "Location: /details?id=$toy['id']" ); endif?>
+<?php // if( !isset($_GET['store']) || !isset($_GET['id'])) : header( 'Location: /error '); endif?>

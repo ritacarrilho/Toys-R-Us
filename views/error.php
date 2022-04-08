@@ -1,1 +1,1 @@
-<?php echo '404 - Not Found'; ?>
+<?php echo 'Try again !' ?>
