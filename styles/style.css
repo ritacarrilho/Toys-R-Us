@@ -30,6 +30,7 @@ h6 {
     height: 100vh;
 }
 
+/* PAGES CONTAINER */ 
 .container {
     margin-left: 25%;
     margin-right: 25%;
@@ -61,7 +62,7 @@ nav > ul li {
     text-align: center;
 }
 
-nav .first-menu li:nth-child(2) a::after {
+.first-menu > li:nth-child(2) > a::after {
     content: '\f0d7';
     font-family: FontAwesome;
     font-weight: normal;
@@ -80,7 +81,7 @@ nav ul li a {
     border-right: 1px dashed #fefefe;
 }
 
-nav ul a:hover, nav ul a:active {
+nav ul a:hover {
     background-color: var(--light-blue);
     color: var(--blue);
 }
@@ -110,10 +111,6 @@ nav ul ul li a {
     text-align: left;
 }
 
-.nav > ul > ul li a::after {
-    content: '';
-}
-
 /* FORM */
 form {
     text-align: center;
@@ -127,7 +124,7 @@ form button {
     padding: 1.5px;
 }
 
-/* ITEMS DISPLAY GRID*/
+/* ITEMS DISPLAY GRID */
 .items-grid {
     margin-top: 50px;
     display: grid;
@@ -154,6 +151,8 @@ form button {
         font-size: 20px;
     }
 
+
+/* ITEMS DISPLAY FLEX*/
 .items-flex {
     display: flex;
     padding-left: 27px;
@@ -190,4 +189,25 @@ h6 span {
 .store-form{
     margin-top: 15px;
     text-align: left;
+}
+
+/* ERROR PAGE */
+.error-message {
+    text-align: center;
+    font-size: 50px;
+}
+
+.error-message > h2 {
+    font-weight: 300;
+    padding-top: 30px;
+}
+
+.error-message > h3 {
+    font-weight: 300;
+}
+
+.error-message > h4 {
+    font-size: 20px;
+    font-weight: 100;
+    padding-top: 30px;
 }

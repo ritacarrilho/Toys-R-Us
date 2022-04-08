@@ -27,5 +27,6 @@ function routerStart(): void
             require_once PATH_ROOT . 'controllers' . SLASH . 'error-controller.php';
             errorRender();
             break;
+
     }
 }

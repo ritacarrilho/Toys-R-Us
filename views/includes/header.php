@@ -29,7 +29,7 @@ $brand_data = getAllBrands(); ?>
                     <li>
                         <a href="list">Tous les jouets</a>
                     </li>
-                    <li id="li">
+                    <li>
                         <a href="list">Par marque</a>
                             <ul class="sub-menu">
                             <?php
