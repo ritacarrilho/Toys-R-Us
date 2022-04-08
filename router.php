@@ -23,10 +23,14 @@ function routerStart(): void
 
             break;
 
-        case '/error':
-            require_once PATH_ROOT . 'controllers' . SLASH . 'error-controller.php';
+        // case '/error':
+        //     require_once PATH_ROOT . 'controllers' . SLASH . 'error-controller.php';
+        //     errorRender();
+        //     break;
+
+        default:
+            require PATH_ROOT . 'controllers' . SLASH . 'error-controller.php';
             errorRender();
             break;
-
     }
 }

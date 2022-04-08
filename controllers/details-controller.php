@@ -12,7 +12,7 @@ function detailsRender() {
 
     $stores = getAllStores();
     $stock_all_stores = getStockTotal();
-    $stocks_each_store = getStockByStore(); // stock by store
+    $stocks_each_store = getStockByStore();
     
     // var_dump($stocks_each_store);
     // var_dump($stock_all_stores);
@@ -24,7 +24,7 @@ function detailsRender() {
     require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'footer.php';
 }
 
-// Get toy name, details, image and brand
+// Get each toy name, details, image and brand
 function getToys() {
     global $mysqli;
     
@@ -79,7 +79,7 @@ function getAllStores() {
         return $stores_list;
 }
 
-// Get stock total of all stores, by toy
+// Get stock total of all stores, by toy_id
 function getStockTotal() {
     global $mysqli;
     
@@ -112,6 +112,8 @@ function getStockTotal() {
     return $stock_total;
 }
 
+
+// Get stock of each store, by store_id and toy_id
 function getStockByStore() {
     global $mysqli;
     

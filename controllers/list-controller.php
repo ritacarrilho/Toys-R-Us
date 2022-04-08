@@ -16,7 +16,7 @@ function listRender() {
     require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'footer.php';
 }
 
-// get all toys
+// get name, price, image and id of each toy
 function getAllGames() {
     global $mysqli;
     
@@ -39,7 +39,7 @@ function getAllGames() {
         return $games_list;
 }
 
-// get toys by brand
+// get all toys of each brand
 function getByBrand() {
     global $mysqli;
     

@@ -10,6 +10,7 @@ function homeRender() {
     require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'footer.php';
 }
 
+// Get top 3 toys by sales
 function getTopThree() {
     global $mysqli;
     
@@ -23,7 +24,6 @@ function getTopThree() {
             ORDER BY toys.price DESC 
             LIMIT 3';
         
-    // Query execution
     $q_list = mysqli_query( $mysqli, $q );
     // var_dump($q);
             
