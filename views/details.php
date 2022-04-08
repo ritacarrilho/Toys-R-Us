@@ -2,13 +2,15 @@
 <?php 
 if( isset($_GET['id']) || (isset($_GET['store']) && isset($_GET['id']))) : 
      foreach( $toys as $toy ): ?>
+     <!-- Display each toy -->
         <div class=img>
             <img src="/img/<?php echo $toy['image'] ?>" alt= "<?php echo $toy['name'] ?>">
 
         <p><?php echo str_replace('.' , ',', $toy['price'])?>€</p>
-        
+        <!-- Form to choose a store -->
         <form class="store-form" action="" method="get">
             <input type="hidden" name="id" value= <?php echo $_GET['id'] ?>>
+            
             <select name="store">
             <?php if( !isset($_GET['store']) || $_GET['store'] === 'choose-a-store' ): ?>
                 <option value="choose-a-store">Quel magasin ?</option> 
@@ -23,7 +25,7 @@ if( isset($_GET['id']) || (isset($_GET['store']) && isset($_GET['id']))) :
             <button type="submit">Ok</button>
 
         </form>
-                
+        <!-- Display stock -->
         <h6>Stock : 
             <span>
             <?php 
@@ -38,6 +40,7 @@ if( isset($_GET['id']) || (isset($_GET['store']) && isset($_GET['id']))) :
         </h6>
     </div>
 
+    <!-- Display Brand -->
     <div class="content">
         <h6>Marque : <span>
             <?php echo $toy['brand_name'] ?>
@@ -47,11 +50,6 @@ if( isset($_GET['id']) || (isset($_GET['store']) && isset($_GET['id']))) :
         </span>
     </div>
     <?php endforeach ;
-endif ?>
+endif
+?>
 </div>
-
-<?php 
-
-if(!$toys || !$toys && !$stores) {
-    header( 'Location: /error');
-}

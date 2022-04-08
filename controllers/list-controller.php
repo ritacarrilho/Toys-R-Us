@@ -4,16 +4,26 @@ function listRender() {
     $page_title = 'Les jouets'; 
     $list_url = "PATH_ROOT . 'views' . SLASH . 'list.php'";
 
-    require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'header.php';
+    
     $games = getAllGames();
     $brands = getByBrand();
     // var_dump($brands);
 
-    // $all_brands = getAllBrands();
     $toys = !isset($_GET['brand']) ? $games : $brands;
 
+    require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'header.php';
     require_once PATH_ROOT . 'views' . SLASH . 'list.php';
     require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'footer.php';
+
+    // error control
+    if(!$toys && isset($_GET['brand']) && $_GET['brand'] !== 'choose-a-brand'){
+        header( 'Location: /error');    
+    }
+
+    // redirection to /list
+    if( isset($_GET['brand']) && $_GET['brand'] === 'choose-a-brand' ){
+        header( 'Location: /list'); 
+    }
 }
 
 // get name, price, image and id of each toy
@@ -22,9 +32,8 @@ function getAllGames() {
     
     $games_list = [];
     
-    $q = 'SELECT name, price, image, id FROM toys';
+    $q = 'SELECT name, price, image, id FROM toys ORDER BY price ASC' ;
     
-    // Query execution
     $q_list = mysqli_query( $mysqli, $q );
     // var_dump($q);
         

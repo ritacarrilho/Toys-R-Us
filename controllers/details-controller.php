@@ -17,11 +17,18 @@ function detailsRender() {
     // var_dump($stocks_each_store);
     // var_dump($stock_all_stores);
     
+    // if a store is selected display all toys available in that store, else display toys available in all stores
     $stocks = !isset($_GET['store']) ? $stock_all_stores : $stocks_each_store;
-        
-    require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'header.php';
-    require_once PATH_ROOT . 'views' . SLASH . 'details.php';
-    require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'footer.php';
+
+    // pages redirection and error control
+    if($toys && $stocks) {
+        require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'header.php';
+        require_once PATH_ROOT . 'views' . SLASH . 'details.php';
+        require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'footer.php';
+    }
+    else {
+        header( 'Location: /error');
+    }
 }
 
 // Get each toy name, details, image and brand

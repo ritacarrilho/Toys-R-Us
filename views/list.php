@@ -1,3 +1,4 @@
+<!-- Form to choose brand name -->
 <form action="" method="get">
     <select name="brand">
     <option value="choose-a-brand">Quelle marque ?</option>
@@ -15,6 +16,7 @@
     <button type="submit">Ok</button>
 </form>
 
+<!-- Display toys -->
 <div class="items-grid">
     <?php if( count($toys) > 0 ): ?>
         <?php foreach( $toys as $toy ): ?>
@@ -26,13 +28,3 @@
         <?php endforeach ?>
     <?php endif ?>
 </div>
-
-<?php 
-if( isset($_GET['brand']) && $_GET['brand'] === 'choose-a-brand' ){
-    header( 'Location: /list'); 
-}
-
-if(!$toys && isset($_GET['brand']) && $_GET['brand'] !== 'choose-a-brand'){
-    header( 'Location: /error');
-}
-?>
