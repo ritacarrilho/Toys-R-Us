@@ -27,15 +27,12 @@ function getTopThree() {
     $q_list = mysqli_query( $mysqli, $q );
     // var_dump($q);
             
-        if( $q_list ) {
-            while( $list = mysqli_fetch_assoc( $q_list ) ) {
-                // echo $list['name'];
-                // echo $list['price'];
-                // echo $list['image']; 
-
-                $top_list[] = $list;
-            }
+    if( $q_list ) {
+        while( $list = mysqli_fetch_assoc( $q_list ) ) {
+           
+            $top_list[] = $list;
         }
+    }
 
-        return $top_list;
+    return $top_list;
 }

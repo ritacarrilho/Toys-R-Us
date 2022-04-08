@@ -11,12 +11,12 @@ function listRender() {
 
     $toys = !isset($_GET['brand']) ? $games : $brands;
 
-    require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'header.php';
-    require_once PATH_ROOT . 'views' . SLASH . 'list.php';
-    require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'footer.php';
+
 
     // error control
-    if(!$toys && isset($_GET['brand']) && $_GET['brand'] !== 'choose-a-brand'){
+    if(!$toys && isset($_GET['brand'])){
+        var_dump($toys);
+        echo'miau';
         header( 'Location: /error');    
     }
 
@@ -24,6 +24,10 @@ function listRender() {
     if( isset($_GET['brand']) && $_GET['brand'] === 'choose-a-brand' ){
         header( 'Location: /list'); 
     }
+
+    require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'header.php';
+    require_once PATH_ROOT . 'views' . SLASH . 'list.php';
+    require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'footer.php';
 }
 
 // get name, price, image and id of each toy

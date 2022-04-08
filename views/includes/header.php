@@ -1,6 +1,8 @@
-<?php require PATH_ROOT . 'controllers' . SLASH . 'toys-list-controller.php';
+<?php 
+require PATH_ROOT . 'controllers' . SLASH . 'toys-list-controller.php';
 
-$brand_data = getAllBrands(); ?>
+$brand_data = getAllBrands(); 
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -31,22 +33,25 @@ $brand_data = getAllBrands(); ?>
                     </li>
                     <li>
                         <a href="list">Par marque</a>
-                            <ul class="sub-menu">
+                        <ul class="sub-menu">
                             <?php
-                                foreach($brand_data as $data) {?> 
+                                foreach($brand_data as $data) { ?> 
                                 <li>
                                     <a href="/list?brand=<?= $data['brand_id']?>">
-                                <?php echo $data['brand_name'] . " (" . $data['toys_total']  . ")";?>
-                                </a></li>
+                                    <?php echo $data['brand_name'] . " (" . $data['toys_total']  . ")";?>
+                                    </a>
+                                </li>
                             <?php } ?>    
-                            </ul>
+                        </ul>
                     </li>
                 </ul>
             </nav>
         </header>
 
         <main> 
-            <h1><?php echo $page_title ?></h1>
+            <h1>
+                <?php echo $page_title ?>
+            </h1>
 
             <div class="items-container">
             

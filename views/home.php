@@ -7,5 +7,4 @@
                 <p><?php echo str_replace('.' , ',',$toy['price']) ?>€</p>
             </div>    
         <?php endforeach ?>
-
 </div>

@@ -28,3 +28,14 @@
         <?php endforeach ?>
     <?php endif ?>
 </div>
+
+<?php 
+// '/list' redirection
+// if( $_GET['brand'] === 'choose-a-brand' ){
+//     header( 'Location: /list'); 
+// }
+// // error redirection
+// if(!$toys && isset($_GET['brand']) && $_GET['brand'] !== 'choose-a-brand'){
+//     header( 'Location: /error');
+// }
+?>

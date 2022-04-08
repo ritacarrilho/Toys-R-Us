@@ -1,4 +1,5 @@
 <div class="items-flex">
+
 <?php 
 if( isset($_GET['id']) || (isset($_GET['store']) && isset($_GET['id']))) : 
      foreach( $toys as $toy ): ?>
@@ -28,28 +29,26 @@ if( isset($_GET['id']) || (isset($_GET['store']) && isset($_GET['id']))) :
         <!-- Display stock -->
         <h6>Stock : 
             <span>
-            <?php 
-            foreach( $stocks as $stock):
-                if( isset($_GET['id']) && isset($_GET['store'])) :
-                    echo $stock['quantity'];
-                else:     
-                    echo $stock['stock_total'];
-                endif; 
-            endforeach;?>
+                <?php 
+                foreach( $stocks as $stock):
+                    if( isset($_GET['id']) && isset($_GET['store'])) :
+                        echo $stock['quantity'];
+                    else:     
+                        echo $stock['stock_total'];
+                    endif; 
+                endforeach;?>
             </span>
         </h6>
     </div>
 
     <!-- Display Brand -->
     <div class="content">
-        <h6>Marque : <span>
-            <?php echo $toy['brand_name'] ?>
-        </span></h6>
-        <span>
-            <?php echo $toy['description'] ?>
-        </span>
+        <h6>Marque : 
+            <span><?php echo $toy['brand_name'] ?></span>
+        </h6>
+        <span><?php echo $toy['description'] ?></span>
     </div>
     <?php endforeach ;
-endif
-?>
+endif ?>
+
 </div>

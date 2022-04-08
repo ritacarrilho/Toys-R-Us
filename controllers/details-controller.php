@@ -31,7 +31,7 @@ function detailsRender() {
     }
 }
 
-// Get each toy name, details, image and brand
+// Get name, details, image and brand of each toy 
 function getToys() {
     global $mysqli;
     

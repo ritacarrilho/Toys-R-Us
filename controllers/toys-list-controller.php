@@ -13,12 +13,13 @@ function getAllBrands() {
     
     $q_list = mysqli_query( $mysqli, $q );
         
-        if( $q_list ) {
-            while( $brand = mysqli_fetch_assoc( $q_list ) ) {
+    if( $q_list ) {
+        while( $brand = mysqli_fetch_assoc( $q_list ) ) {
 
-                $brands_list[] = $brand;
-                // var_dump($brands_list);
-            }
+            $brands_list[] = $brand;
+            // var_dump($brands_list);
         }
-        return $brands_list;
+    }
+    
+    return $brands_list;
 }

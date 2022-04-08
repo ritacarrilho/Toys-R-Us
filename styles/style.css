@@ -52,77 +52,77 @@ nav {
     height: 45px;
 }
 
-nav > ul {
-    font-size: 15px;
-    display: flex;
-}
+    nav > ul {
+        font-size: 15px;
+        display: flex;
+    }
 
-nav > ul li {
-    position: relative;
-    text-align: center;
-}
+        nav > ul li {
+            position: relative;
+            text-align: center;
+        }
 
-.first-menu > li:nth-child(2) > a::after {
-    content: '\f0d7';
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    margin:0px 0px 0px 10px;
-    text-decoration:none;
-}
+            .first-menu > li:nth-child(2) > a::after {
+                content: '\f0d7';
+                font-family: FontAwesome;
+                font-weight: normal;
+                font-style: normal;
+                margin:0px 0px 0px 10px;
+                text-decoration:none;
+            }
 
-nav ul li a {
-    display: block;
-    padding: 16px 15px 0 15px;
-    color: #fefefe;
-    font-size: 10px;
-    font-weight: 700;
-    height: 45px;
-    border-right: 1px dashed #fefefe;
-}
+            nav ul li a {
+                display: block;
+                padding: 16px 15px 0 15px;
+                color: #fefefe;
+                font-size: 10px;
+                font-weight: 700;
+                height: 45px;
+                border-right: 1px dashed #fefefe;
+            }
 
-nav ul a:hover {
-    background-color: var(--light-blue);
-    color: var(--blue);
-}
+            nav ul a:hover {
+                background-color: var(--light-blue);
+                color: var(--blue);
+            }
 
-nav ul ul {
-    position: absolute;
-    top: 45px;
-    display: none;
-    background-color: var(--light-blue);
-    overflow: hidden;
-    width: 100px;
-}
+        nav ul ul {
+            position: absolute;
+            top: 45px;
+            display: none;
+            background-color: var(--light-blue);
+            overflow: hidden;
+            width: 100px;
+        }
 
-nav ul li:hover > ul {
-    display: block;
-    width: 130px;
-}
+            nav ul li:hover > ul {
+                display: block;
+                width: 130px;
+            }
 
-nav ul ul li {
-    position: relative;
-}
+            nav ul ul li {
+                position: relative;
+            }
 
-nav ul ul li a {
-    color: var(--dark-blue);
-    border-right: none;
-    padding: 14px 0 0 21px;
-    text-align: left;
-}
+                nav ul ul li a {
+                    color: var(--dark-blue);
+                    border-right: none;
+                    padding: 14px 0 0 21px;
+                    text-align: left;
+                }
 
 /* FORM */
 form {
     text-align: center;
 }
 
-form button {
-    border: 1px solid #000000;
-    background-color: #dad8d8;
-    border-radius: 1px;
-    cursor: pointer;
-    padding: 1.5px;
-}
+    form button {
+        border: 1px solid #000000;
+        background-color: #dad8d8;
+        border-radius: 1px;
+        cursor: pointer;
+        padding: 1.5px;
+    }
 
 /* ITEMS DISPLAY GRID */
 .items-grid {
@@ -159,37 +159,37 @@ form button {
     padding-right: 27px;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    padding-left: 10px;
-    padding-top: 20px;
-}
+    .content {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+        padding-top: 20px;
+    }
 
-.content > p, .content > h6 {
-    padding-bottom: 15px;
-}
+        .content > p, .content > h6 {
+            padding-bottom: 15px;
+        }
 
-h6 span {
-    color: var(--dark-blue);
-}
+            h6 span {
+                color: var(--dark-blue);
+            }
 
-.content span p  {
-    padding-bottom: 15px;
-}
+                .content span p  {
+                    padding-bottom: 15px;
+                }
 
-.img > p {
-    padding-top: 5px;
-}
+                .img > p {
+                    padding-top: 5px;
+                }
 
-.img h6 {
-    margin-top: 10px;
-}
+        .img h6 {
+            margin-top: 10px;
+        }
 
-.store-form{
-    margin-top: 15px;
-    text-align: left;
-}
+    .store-form{
+        margin-top: 15px;
+        text-align: left;
+    }
 
 /* ERROR PAGE */
 .error-message {
@@ -197,17 +197,17 @@ h6 span {
     font-size: 50px;
 }
 
-.error-message > h2 {
-    font-weight: 300;
-    padding-top: 30px;
-}
+    .error-message > h2 {
+        font-weight: 300;
+        padding-top: 30px;
+    }
 
-.error-message > h3 {
-    font-weight: 300;
-}
+    .error-message > h3 {
+        font-weight: 300;
+    }
 
-.error-message > h4 {
-    font-size: 20px;
-    font-weight: 100;
-    padding-top: 30px;
-}
+    .error-message > h4 {
+        font-size: 20px;
+        font-weight: 100;
+        padding-top: 30px;
+    }
