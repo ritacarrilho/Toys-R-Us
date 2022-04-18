@@ -7,7 +7,7 @@
 
 ## General Info
 Toys R Us store website using a router and MVC pattern with toys and stores information from a Database. 
-Project developed in procedural and styled according to a maquette. 
+Project developed in procedural and styled according to a maquette. Dev environment: Docker and Lando.
 
 ## Technologies:
 Project is created with:
@@ -15,6 +15,8 @@ Project is created with:
 * CSS
 * PHP
 * MySQL
+* Docker
+* Lando
 
 ## Functionalities
 * Home Page: Top 3 of best sellers
