@@ -6,11 +6,11 @@
 * [Functionalities](#functionalities)
 
 ## General Info
-Toys R Us store website using a router and MVC pattern with toys and stores information from a Database. 
+Toys R Us store website using a router and kind of MVC pattern with toys and stores information from a Database. 
 Project developed in procedural and styled according to a mockup. Dev environment: Docker and Lando.
 
 ## Technologies:
-Project is created with:
+Project created with:
 * HTML
 * CSS
 * PHP
