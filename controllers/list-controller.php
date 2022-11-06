@@ -4,14 +4,11 @@ function listRender() {
     $page_title = 'Les jouets'; 
     $list_url = "PATH_ROOT . 'views' . SLASH . 'list.php'";
 
-    
     $games = getAllGames();
     $brands = getByBrand();
     // var_dump($brands);
 
     $toys = !isset($_GET['brand']) ? $games : $brands;
-
-
 
     // error control
     if(!$toys && isset($_GET['brand'])){
@@ -79,7 +76,7 @@ function getByBrand() {
                 if( $result ) {
                     while( $toys = mysqli_fetch_assoc( $result ) ) {
                         $brand_list[] = $toys;
-                }
+                    }
                 };
             }
         }
