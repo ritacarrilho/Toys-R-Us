@@ -14,9 +14,6 @@ function detailsRender() {
     $stock_all_stores = getStockTotal();
     $stocks_each_store = getStockByStore();
     
-    // var_dump($stocks_each_store);
-    // var_dump($stock_all_stores);
-    
     // if a store is selected display all toys available in that store, else display toys available in all stores
     $stocks = !isset($_GET['store']) ? $stock_all_stores : $stocks_each_store;
 
@@ -61,8 +58,6 @@ function getToys() {
             }
         }
     }
-    // var_dump($toys_list);
-
     return $toys_list;
 }
 
@@ -118,7 +113,6 @@ function getStockTotal() {
     }
     return $stock_total;
 }
-
 
 // Get stock of each store, by store_id and toy_id
 function getStockByStore() {
