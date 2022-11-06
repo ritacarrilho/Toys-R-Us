@@ -27,28 +27,6 @@ function listRender() {
     require_once PATH_ROOT . 'views' . SLASH . 'includes' . SLASH . 'footer.php';
 }
 
-// get name, price, image and id of each toy
-function getAllGames() {
-    global $mysqli;
-    
-    $games_list = [];
-    
-    $q = 'SELECT name, price, image, id FROM toys ORDER BY price ASC' ;
-    
-    $q_list = mysqli_query( $mysqli, $q );
-    // var_dump($q);
-        
-        if( $q_list ) {
-            while( $game = mysqli_fetch_assoc( $q_list ) ) {
-
-                $games_list[] = $game;
-                // var_dump($games_list);
-            }
-        }
-        // var_dump($games_list);
-        return $games_list;
-}
-
 // get all toys of each brand
 function getByBrand() {
     global $mysqli;
@@ -82,4 +60,26 @@ function getByBrand() {
         }
     }
     return $brand_list;
+}
+
+// get name, price, image and id of each toy
+function getAllGames() {
+    global $mysqli;
+    
+    $games_list = [];
+    
+    $q = 'SELECT name, price, image, id FROM toys ORDER BY price ASC' ;
+    
+    $q_list = mysqli_query( $mysqli, $q );
+    // var_dump($q);
+        
+        if( $q_list ) {
+            while( $game = mysqli_fetch_assoc( $q_list ) ) {
+
+                $games_list[] = $game;
+                // var_dump($games_list);
+            }
+        }
+        // var_dump($games_list);
+        return $games_list;
 }
